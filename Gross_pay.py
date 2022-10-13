@@ -1,4 +1,4 @@
-#Exercise 3: 
+#Gross pay program:
 
 prompt1 = 'How many hours did you work?\n'
 hours = input(prompt1)
