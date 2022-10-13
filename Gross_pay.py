@@ -6,4 +6,4 @@ prompt2 = 'At what rate did you work?\n'
 rate = input(prompt2)
 #Have to write float any input value can be a decimal which is not an integer
 pay = float(hours) * float(rate)
-print(pay)
+print(f'${pay}, is your gross pay')
