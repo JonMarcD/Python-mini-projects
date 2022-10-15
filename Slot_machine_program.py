@@ -45,10 +45,12 @@ def print_slot_machine(columns):
 #enumertate gives your the index as you loop through as well as the item
         for i, column in enumerate(columns):
             if i != len(columns) -1:
-                print(column[row], "|")
+                print(column[row], end=" | ") #end tells print statement what to end the line with end = \n but instead it prints | at the end
             else:
-                print(column[row])
+                print(column[row], end="")
 
+
+        print()#adding this just prints a new line but its empty so we can;t see it
 #ALl user input
 #Function to collect deposite through user input
 def deposite():
@@ -114,6 +116,8 @@ def main():
 #printing what has been inputed back to the user
     print(f"You are betting ${bet} on {lines} llines. Total bet is equal to: ${total_bet} ")
 
-
+#generates the slop machine
+    slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
+    print_slot_machine(slots)
 
 main()
