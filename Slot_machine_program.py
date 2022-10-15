@@ -26,7 +26,7 @@ def get_slot_machine_spin(rows, cols, symbols):
             all_symbols.append(symbol)
         
     columns = [] #define column
-    for _ in range(cols): #generate column for every column we have
+    for _ in range(cols): #generate column for every column we have 
 #this picks any random value for each row in our column
         column = []
 #[:] creates a copy of the list all_symbols which doesn't directly affect the original
