@@ -1,7 +1,53 @@
+import random
+
+
 #global constant done in all capitals
 MAX_LINES = 3
 MAX_BET = 100
 MIN_BET = 1
+
+ROWS = 3
+COLS = 3
+#values for the symbols of the slot machine
+symbol_count = {
+    "A": 2,
+    "B": 4,
+    "C": 6,
+    "D": 8
+}
+
+#generates the outcome of the slot machine using values
+def get_slot_machine_spin(rows, cols, symbols):
+    all_symbols = []
+#.items gives you both the key and value which is associated with the dictionary key = being symbol, value = being symbol_count
+    for symbol, symbol_count in symbols.items():
+#underscore is an anonomous variable
+        for _ in range(symbol_count):
+            all_symbols.append(symbol)
+        
+    columns = [] #define column
+    for _ in range(cols): #generate column for every column we have
+#this picks any random value for each row in our column
+        column = []
+#[:] creates a copy of the list all_symbols which doesn't directly affect the original
+        current_symbols = all_symbols[:] #our all_symbols is equal to a copy of current symbols
+        for _ in range(rows): #loop through number of values we need to generate = to number of rows
+            value = random.choice(current_symbols) #picks random values
+            current_symbols.remove(value) #this is so the same value isn't picked again
+            column.append(value) #we add value ot our column
+#
+        columns.append(column)
+
+    return columns
+
+def print_slot_machine(columns):
+    for row in range(len(columns[0])): #loop through every row we have and for every row we print the column for every column we print the one were on
+#enumertate gives your the index as you loop through as well as the item
+        for i, column in enumerate(columns):
+            if i != len(columns) -1:
+                print(column[row], "|")
+            else:
+                print(column[row])
 
 #ALl user input
 #Function to collect deposite through user input
@@ -67,5 +113,7 @@ def main():
 
 #printing what has been inputed back to the user
     print(f"You are betting ${bet} on {lines} llines. Total bet is equal to: ${total_bet} ")
+
+
 
 main()
