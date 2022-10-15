@@ -1,5 +1,7 @@
 #global constant done in all capitals
 MAX_LINES = 3
+MAX_BET = 100
+MIN_BET = 1
 
 #ALl user input
 #Function to collect deposite through user input
@@ -33,10 +35,29 @@ def get_number_of_lines():
             print("please enter a number.")
     return lines
 
+#amount which is bet on each line
+def get_bet(): 
+    while True:
+        amount = input("What would you line to bet on each line? $")
+        if amount.isdigit():
+            amount = int(amount)
+            if MIN_BET <= amount <= MAX_BET:
+                break
+#f-string to embed variables in the string without having to convert it into a string beforehand
+            else:
+                print(f"Amount must be between ${MIN_BET} - ${MAX_BET}.")
+        else:
+            print("please enter a number.")
+    return amount
+
 #where the main program will be in
 def main():
+#giving variables values
     balance = deposite()
     lines = get_number_of_lines()
-    print(balance, lines)
+    bet = get_bet()
+    total_bet = bet * lines
+#printing what has been inputed back to the user
+    print(f"You are betting ${bet} on {lines} llines. Total bet is equal to: ${total_bet} ")
 
 main()
