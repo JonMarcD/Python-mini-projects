@@ -8,6 +8,10 @@ def computepay(hours, rate):
     pay = float(hours) * float(rate) #hours & rate take whatever is set as the parameter
     return pay #the return statement is sent to the calling code and used as the functions result
 
+def overtimepay(hours, rate):
+    ot_pay = float(hours) * float(rate)
+    return ot_pay
+
 try:
     hours = float(int)
     rate = 10
@@ -15,8 +19,7 @@ try:
     if hours > full_hours: #short circuited if not true doesn't continue and moves to except:
         ot_hours = float(hours) - full_hours
         ot_rate = 15
-        ot_pay = float(ot_hours) * float(ot_rate)
-        ot_gross = float(ot_pay) + computepay(full_hours, rate)
+        ot_gross = overtimepay(ot_hours, ot_rate) + computepay(full_hours, rate)
         print(f"${ot_gross} is your gross pay.")
     else:  #nested conditional
         if hours <= full_hours:
@@ -24,3 +27,5 @@ try:
         print(f"${pay} is your gross pay.")
 except:
     print("Error, please enter numeric input")
+
+#ot_pay = float(ot_hours) * float(ot_rate)
