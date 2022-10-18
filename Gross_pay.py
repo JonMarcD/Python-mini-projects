@@ -1,8 +1,5 @@
 #Gross pay program:
-from pickletools import int4
-
-
-print("How many hours did you work?")
+prompt1 = print("How many hours did you work?")
 int = input()
 
 try:
