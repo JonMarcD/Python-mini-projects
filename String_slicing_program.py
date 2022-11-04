@@ -9,4 +9,6 @@ sppos = data.find(' ',colon_pos) #this is suppose to find the first space but si
 print(sppos)
 
 host = data[colon_pos+1:sppos] #this just tells us that the data were looking for is between the colon position and the position of the last character
-print(host)
+
+float_host = float(host) #this just takes the host and turns it into a float
+print(float_host)
